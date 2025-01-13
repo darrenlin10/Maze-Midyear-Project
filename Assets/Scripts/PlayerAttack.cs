@@ -20,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
         foreach (Collider hit in hits)
         {
+            // Check for boss or other damageable enemies
             if (hit.CompareTag("Boss"))
             {
                 BossAI boss = hit.GetComponent<BossAI>();

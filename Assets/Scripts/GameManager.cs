@@ -1,15 +1,33 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // For scene loading/reloading
 
 public class GameManager : MonoBehaviour
 {
     public MazeGenerator mazeGenerator;
     public MazeGrid mazeGrid;
 
+    [Header("Enemy Spawning")]
     public GameObject enemyPrefab;
     public int numberOfEnemies = 3;
 
+    [Header("Player Settings")]
+    public PlayerAttack playerAttack;  // Drag your PlayerAttack script here
+    public Transform player;           // The Player transform
+
+    [Header("Boss Settings")]
+    public BossAI boss;               // The boss reference if needed
+
+    public enum GameState { Maze, BossFight, Victory, Defeat }
+    public GameState currentState = GameState.Maze;
+
+    public GameObject defeatPanel;
+    public GameObject victoryPanel;
+
     void Start()
     {
+        // Start in Maze state
+        currentState = GameState.Maze;
+
         // 1. Generate the maze
         mazeGenerator.GenerateMaze();
 
@@ -18,6 +36,9 @@ public class GameManager : MonoBehaviour
 
         // 3. Spawn enemies in random walkable cells
         SpawnEnemies();
+
+        // Disable player attack initially (player can’t fight until exit is found)
+        if (playerAttack) playerAttack.enabled = false;
     }
 
     void SpawnEnemies()
@@ -46,5 +67,34 @@ public class GameManager : MonoBehaviour
             }
         }
         return result;
+    }
+
+    // Called by MazeExitTrigger when the player reaches the maze exit
+    public void OnMazeExitReached()
+    {
+        currentState = GameState.BossFight;
+        
+        if (playerAttack) playerAttack.enabled = true;
+        Debug.Log("Maze exit reached! Boss fight enabled. Player can now attack.");
+    }
+
+    // Called if the player’s HP reaches 0 or if the boss kills the player
+    public void OnPlayerDefeated()
+    {
+        if (currentState == GameState.Defeat || currentState == GameState.Victory) return;
+        currentState = GameState.Defeat;
+        Debug.Log("Game Over! Player has been defeated.");
+
+        defeatPanel.SetActive(true);
+    }
+
+    // Called by BossAI when boss HP <= 0
+    public void OnBossDefeated()
+    {
+        if (currentState == GameState.Defeat) return;
+        currentState = GameState.Victory;
+        Debug.Log("Victory! Boss was defeated!");
+
+        victoryPanel.SetActive(true);
     }
 }

@@ -10,13 +10,14 @@ public class PlayerHealth : MonoBehaviour
         playerHealth -= dmg;
         if (playerHealth <= 0f)
         {
-            Die();
-        }
-    }
+            playerHealth = 0f; // clamp at 0 to avoid going negative
 
-    void Die()
-    {
-        // Reload the scene or handle game over
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // Notify GameManager that player is dead
+            GameManager gm = FindObjectOfType<GameManager>();
+            if (gm != null)
+            {
+                gm.OnPlayerDefeated();
+            }
+        }
     }
 }

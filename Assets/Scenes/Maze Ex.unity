@@ -416,11 +416,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3569648989802008193, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.41
       objectReference: {fileID: 0}
     - target: {fileID: 3569648989802008193, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 3569648989802008193, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -457,6 +457,10 @@ PrefabInstance:
     - target: {fileID: 5210469558891102981, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
       propertyPath: m_UseGravity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210469558891102981, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8414457708911490512, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
       propertyPath: m_IsTrigger
@@ -577,6 +581,7 @@ GameObject:
   - component: {fileID: 1233563238}
   - component: {fileID: 1233563237}
   - component: {fileID: 1233563236}
+  - component: {fileID: 1233563239}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -652,12 +657,27 @@ Transform:
   m_GameObject: {fileID: 1233563235}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1773015895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1233563239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233563235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2cd6a3b9a344d2a86d4b0224d38206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1773015895}
+  mouseSensitivity: 200
+  maxVerticalAngle: 100
 --- !u!1 &1311521453
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1311521453}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1311521456
@@ -759,6 +779,12 @@ MonoBehaviour:
   mazeGrid: {fileID: 1942040610}
   enemyPrefab: {fileID: 2031471101}
   numberOfEnemies: 4
+  playerAttack: {fileID: 1773015896}
+  player: {fileID: 1773015895}
+  boss: {fileID: 2081807820}
+  currentState: 0
+  defeatPanel: {fileID: 0}
+  victoryPanel: {fileID: 0}
 --- !u!4 &1389911670
 Transform:
   m_ObjectHideFlags: 0
@@ -799,7 +825,7 @@ Transform:
   m_GameObject: {fileID: 1396930998}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1016,8 +1042,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 2
 --- !u!136 &1773015899
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1185,7 +1211,7 @@ MonoBehaviour:
   speed: 2
   player: {fileID: 1773015895}
   projectilePrefab: {fileID: 1477940734679710668, guid: c0ab24fdd842148629a6a3942e72e38e, type: 3}
-  projectileSpawnPoint: {fileID: 0}
+  projectileSpawnPoint: {fileID: 1396930999}
   shootCooldown: 2
   bulletDamage: 10
 --- !u!54 &2081807821
@@ -1213,7 +1239,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &2081807822
 CapsuleCollider:

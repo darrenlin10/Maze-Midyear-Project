@@ -13,6 +13,10 @@ public class PathfindingAI : MonoBehaviour
     private List<Node> currentPath;
     private int currentNodeIndex;
     private float pathTimer;
+    private bool attackCooldown;
+
+    // Continuous damage settings
+    private float damagePerSecond = 10f; // 10 HP/sec
 
     void Start()
     {
@@ -21,7 +25,7 @@ public class PathfindingAI : MonoBehaviour
 
     void Update()
     {
-        if (player == null) return;
+        if (!player) return;
 
         pathTimer += Time.deltaTime;
         if (pathTimer >= updatePathInterval)
@@ -52,25 +56,32 @@ public class PathfindingAI : MonoBehaviour
         Vector3 dir = (targetPos - transform.position).normalized;
         transform.position += dir * moveSpeed * Time.deltaTime;
 
-        // Optional: Make AI face movement direction
+        // Face movement direction
         if (dir != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(dir);
         }
 
-        // Check distance
+        // If close enough to the node, move to the next
         if (Vector3.Distance(transform.position, targetPos) < nextNodeDistance)
         {
             currentNodeIndex++;
         }
     }
 
-    // If AI collides with player => player dies or restarts
-    private void OnCollisionEnter(Collision collision)
+    // Instead of instant kill, do continuous damage
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(9999f);
+            // Get the player's health script
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null && !attackCooldown)
+            {
+                // 10 HP/sec => damagePerSecond * Time.deltaTime each frame
+                playerHealth.TakeDamage(damagePerSecond);
+                attackCooldown = true;
+            }
         }
     }
 }

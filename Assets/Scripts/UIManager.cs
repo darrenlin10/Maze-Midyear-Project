@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,5 +14,15 @@ public class UIManager : MonoBehaviour
         {
             healthText.text = "Health: " + playerHealth.playerHealth;
         }
+    }
+
+    public void RestartButton()
+    {
+        SceneManager.LoadScene("Maze Ex");
+    }
+
+    public void QuitButton()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
