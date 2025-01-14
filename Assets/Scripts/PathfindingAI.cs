@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using System.Collections;
 
 [RequireComponent(typeof(Pathfinding))]
 public class PathfindingAI : MonoBehaviour
@@ -13,10 +15,13 @@ public class PathfindingAI : MonoBehaviour
     private List<Node> currentPath;
     private int currentNodeIndex;
     private float pathTimer;
-    private bool attackCooldown;
+
+    private float attackCoolDown = 1f;
+    private bool canAttack = true;
+
 
     // Continuous damage settings
-    private float damagePerSecond = 10f; // 10 HP/sec
+    private float damage = 10f; // 10 HP/sec
 
     void Start()
     {
@@ -69,19 +74,23 @@ public class PathfindingAI : MonoBehaviour
         }
     }
 
-    // Instead of instant kill, do continuous damage
-    private void OnCollisionStay(Collision collision)
+     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && canAttack)
         {
-            // Get the player's health script
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            if (playerHealth != null && !attackCooldown)
+            if (playerHealth != null)
             {
-                // 10 HP/sec => damagePerSecond * Time.deltaTime each frame
-                playerHealth.TakeDamage(damagePerSecond);
-                attackCooldown = true;
+                StartCoroutine(DealDamage(playerHealth));
             }
         }
+    }
+
+    private IEnumerator DealDamage(PlayerHealth playerHealth)
+    {
+        canAttack = false;
+        playerHealth.TakeDamage(damage);
+        yield return new WaitForSeconds(attackCoolDown);
+        canAttack = true;
     }
 }

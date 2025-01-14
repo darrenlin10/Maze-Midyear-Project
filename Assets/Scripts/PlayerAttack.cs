@@ -5,28 +5,40 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange = 2f;
     public float attackDamage = 10f;
     public KeyCode attackKey = KeyCode.Mouse0;
-    public LayerMask enemyLayer;
+    public GameObject projectilePrefab;
+    public Transform firePoint;
+    public float attackRate = 5f;
+    private float nextAttackTime = 0f;
 
+    // Audio variables
+    private AudioSource audioSource;
+    public AudioClip shootingSound;
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void Update()
     {
-        if (Input.GetKeyDown(attackKey))
+        if (Input.GetButtonDown("Fire1") && Time.time >= nextAttackTime)
         {
             Attack();
+            nextAttackTime = Time.time + 1f / attackRate;
         }
     }
 
     void Attack()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
-        foreach (Collider hit in hits)
+        if (projectilePrefab != null && firePoint != null)
         {
-            // Check for boss or other damageable enemies
-            if (hit.CompareTag("Boss"))
+            Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+
+            // Play shooting sound
+            if (shootingSound != null && audioSource != null)
             {
-                BossAI boss = hit.GetComponent<BossAI>();
-                if (boss != null) boss.TakeDamage(attackDamage);
+                audioSource.PlayOneShot(shootingSound);
             }
         }
+        
     }
 
     private void OnDrawGizmosSelected()

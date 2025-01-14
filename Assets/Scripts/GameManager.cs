@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameObject defeatPanel;
     public GameObject victoryPanel;
 
+    public GameObject bossHealthPanel;
+
     void Start()
     {
         // Start in Maze state
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour
         
         if (playerAttack) playerAttack.enabled = true;
         Debug.Log("Maze exit reached! Boss fight enabled. Player can now attack.");
+        bossHealthPanel.SetActive(true);
     }
 
     // Called if the player’s HP reaches 0 or if the boss kills the player

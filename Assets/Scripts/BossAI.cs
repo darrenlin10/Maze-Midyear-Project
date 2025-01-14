@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class BossAI : MonoBehaviour
 {
+    public static BossAI Instance;
     public float bossHealth = 100f;
     public float detectRange = 20f;
     public float attackRange = 10f;
@@ -15,6 +16,12 @@ public class BossAI : MonoBehaviour
     public float bulletDamage = 10f;
 
     private float shootTimer = 0f;
+    public int maxHealth = 50;
+    public int currentHealth;
+
+    // Health bar UI
+    public GameObject healthBarPrefab;
+    private GameObject healthBarInstance;
 
     void Update()
     {
@@ -64,9 +71,7 @@ public class BossAI : MonoBehaviour
             // Boss is defeated
             Debug.Log("Boss Defeated!");
             Destroy(gameObject);
-
-            // Or load a victory scene:
-            // SceneManager.LoadScene("VictoryScene");
         }
     }
+    
 }
