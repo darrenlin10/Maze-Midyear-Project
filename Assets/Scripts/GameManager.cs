@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // For scene loading/reloading
+using UnityEngine.SceneManagement; 
 
 public class GameManager : MonoBehaviour
 {
@@ -12,22 +12,22 @@ public class GameManager : MonoBehaviour
     public int numberOfEnemies = 3;
 
     [Header("Player Settings")]
-    public PlayerAttack playerAttack;  // Drag your PlayerAttack script here
-    public Transform player;           // The Player transform
+    public PlayerAttack playerAttack;  
+    public Transform player;   
 
     [Header("Boss Settings")]
-    public BossAI boss;               // The boss reference if needed
+    public BossAI boss;              
 
     public enum GameState { Maze, BossFight, Victory, Defeat }
     public GameState currentState = GameState.Maze;
 
     public GameObject defeatPanel;
     public GameObject victoryPanel;
-
     public GameObject bossHealthPanel;
 
     void Start()
     {
+        Instance = this;
         // Start in Maze state
         currentState = GameState.Maze;
 
