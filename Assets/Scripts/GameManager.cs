@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement; // For scene loading/reloading
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     public MazeGenerator mazeGenerator;
     public MazeGrid mazeGrid;
 
@@ -89,6 +90,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over! Player has been defeated.");
 
         defeatPanel.SetActive(true);
+        bossHealthPanel.SetActive(false);
     }
 
     // Called by BossAI when boss HP <= 0
@@ -99,5 +101,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Victory! Boss was defeated!");
 
         victoryPanel.SetActive(true);
+        bossHealthPanel.SetActive(false);
     }
 }

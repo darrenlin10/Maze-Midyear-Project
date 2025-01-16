@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class BossAI : MonoBehaviour
 {
     public static BossAI Instance;
-    public float bossHealth = 100f;
     public float detectRange = 20f;
     public float attackRange = 10f;
     public float speed = 2f;
@@ -62,16 +61,4 @@ public class BossAI : MonoBehaviour
             if (proj != null) proj.damage = bulletDamage;
         }
     }
-
-    public void TakeDamage(float dmg)
-    {
-        bossHealth -= dmg;
-        if (bossHealth <= 0f)
-        {
-            // Boss is defeated
-            Debug.Log("Boss Defeated!");
-            Destroy(gameObject);
-        }
-    }
-    
 }

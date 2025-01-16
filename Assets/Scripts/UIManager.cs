@@ -6,13 +6,23 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public PlayerHealth playerHealth;
+
+    public BossHealth bossHealth;
+    
     public TMP_Text healthText; // Reference to a UI Text element
+
+    public TMP_Text bossHealthText;
 
     void Update()
     {
         if (playerHealth != null && healthText != null)
         {
             healthText.text = "Health: " + playerHealth.playerHealth;
+        }
+
+        if (bossHealth != null && bossHealthText != null)
+        {
+            bossHealthText.text = "Boss Health: " + bossHealth.bossHealth;
         }
     }
 

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    
     public float attackRange = 2f;
     public float attackDamage = 10f;
     public KeyCode attackKey = KeyCode.Mouse0;
@@ -13,13 +14,16 @@ public class PlayerAttack : MonoBehaviour
     // Audio variables
     private AudioSource audioSource;
     public AudioClip shootingSound;
+    private Rigidbody rb;
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+
     }
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextAttackTime)
+        if (Input.GetMouseButtonDown(0) && Time.time >= nextAttackTime)
         {
             Attack();
             nextAttackTime = Time.time + 1f / attackRate;
@@ -28,8 +32,10 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
+        
         if (projectilePrefab != null && firePoint != null)
         {
+            
             Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
 
             // Play shooting sound
