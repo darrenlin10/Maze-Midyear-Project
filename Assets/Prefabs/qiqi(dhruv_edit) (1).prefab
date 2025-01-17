@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba3af03e1d4446b1a5f43c35f741c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2481548582463185576, guid: 1094d105de0904f1db5e396a6e5aa594, type: 3}
+  player: {fileID: 2357617920310302164, guid: 1094d105de0904f1db5e396a6e5aa594, type: 3}
   moveSpeed: 3
   updatePathInterval: 4
   nextNodeDistance: 2

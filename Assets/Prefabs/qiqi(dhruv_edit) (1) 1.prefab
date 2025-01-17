@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81e1f9f5680f48a8bac85b1c6cfbce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazeGrid: {fileID: 0}
+  mazeGrid: {fileID: 2246984451657889365, guid: 50a1e9a9754b54526bd2e4873f3eb7e0, type: 3}
 --- !u!114 &4384040590013683222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba3af03e1d4446b1a5f43c35f741c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 2357617920310302164, guid: 1094d105de0904f1db5e396a6e5aa594, type: 3}
   moveSpeed: 3
   updatePathInterval: 4
   nextNodeDistance: 2
