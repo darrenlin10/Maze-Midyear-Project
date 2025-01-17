@@ -8,7 +8,7 @@ public class MazeGrid : MonoBehaviour
 
     public Node[,] grid;
 
-    // Called after the MazeGenerator is done
+    // Called after MazeGenerator obtains MazeData
     public void CreateGrid(bool[,] mazeData, float _cellSize)
     {
         width = mazeData.GetLength(0);
@@ -16,6 +16,7 @@ public class MazeGrid : MonoBehaviour
         cellSize = _cellSize;
 
         grid = new Node[width, height];
+
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
@@ -27,6 +28,7 @@ public class MazeGrid : MonoBehaviour
         }
     }
 
+    // Convert world position to the nearest node
     public Node GetNodeFromWorldPos(Vector3 worldPos)
     {
         int x = Mathf.RoundToInt(worldPos.x / cellSize);
@@ -38,11 +40,13 @@ public class MazeGrid : MonoBehaviour
         return grid[x, y];
     }
 
+    // 4-direction neighbors for pathfinding
     public System.Collections.Generic.List<Node> GetNeighbours(Node node)
     {
         System.Collections.Generic.List<Node> neighbours = new System.Collections.Generic.List<Node>();
 
-        // 4-direction
+
+
         int[] dx = { 0, 1, 0, -1 };
         int[] dy = { 1, 0, -1, 0 };
 
