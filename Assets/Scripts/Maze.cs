@@ -14,7 +14,10 @@ public class Maze : MonoBehaviour{
     public Vector3 Location;
 
     [Header("Prefabs"), SerializeField]
-    private GameObject WallPrefab, PlanePrefab;
+    private GameObject PlanePrefab;
+
+    [Header("Wall Prefabs"), SerializeField]
+    private GameObject[] WallPrefabs;
 
     public bool IsGenerated {get; private set;} // True when the maze is finished generating
     public bool[,] MazeData {get; private set;} // True - Cell, False - Wall
@@ -23,6 +26,8 @@ public class Maze : MonoBehaviour{
     private HashSet<Cell> ClosedList;  // List of all processed cells
     
     void Awake(){
+        if (Length == 0 || Width == 0)
+            throw new System.Exception("Set a valid maze size!");
         OpenList = new Dictionary<(int, int), Cell>(Length * Width);
         ClosedList = new HashSet<Cell>(Length * Width);
         MazeData = new bool[2 * Length - 1, 2 * Width - 1];
@@ -64,20 +69,29 @@ public class Maze : MonoBehaviour{
     public void DisplayMaze(){
         if (IsGenerated){
             int xSize = 2 * Length - 1, ySize = 2 * Width - 1;
-            GameObject plane = Instantiate(PlanePrefab, new Vector3(Location.x + xSize / 2.0f - 0.5f, Location.y, Location.z + ySize / 2.0f - 0.5f), Quaternion.identity);
-            plane.transform.localScale = new Vector3(xSize / 10.0f, 1f, ySize / 10.0f);
-            plane = Instantiate(PlanePrefab, new Vector3(Location.x - 0.5f, Location.y + 1f, (Location.z * 2 + ySize) / 2.0f - 0.5f), Quaternion.Euler(0f, 0f, -90f));
-            plane.transform.localScale = new Vector3(0.2f, 1f, ySize / 10.0f);
+            //GameObject plane = Instantiate(PlanePrefab, new Vector3(Location.x + xSize / 2.0f - 0.5f, Location.y, Location.z + ySize / 2.0f - 0.5f), Quaternion.identity);
+            //plane.transform.localScale = new Vector3(xSize / 10.0f, 1f, ySize / 10.0f);
+            GameObject plane = Instantiate(PlanePrefab, new Vector3(Location.x - 0.5f, Location.y + 1f, (Location.z * 2 + ySize) / 2.0f - 0.5f), Quaternion.Euler(0f, 0f, -90f));
+            plane.transform.localScale = new Vector3(0.4f, 1f, ySize / 10.0f);
             plane = Instantiate(PlanePrefab, new Vector3(Location.x + xSize - 0.5f, Location.y + 1f, (Location.z * 2 + ySize) / 2.0f - 0.5f), Quaternion.Euler(0f, 0f, 90f));
-            plane.transform.localScale = new Vector3(0.2f, 1f, ySize / 10.0f);
-            plane = Instantiate(PlanePrefab, new Vector3((Location.x * 2 + xSize) / 2.0f - 0.5f, Location.y + 1f, Location.z + ySize - 0.5f), Quaternion.Euler(0f, -90f, 90f));
-            plane.transform.localScale = new Vector3(0.2f, 1f, xSize / 10.0f);
+            plane.transform.localScale = new Vector3(0.4f, 1f, ySize / 10.0f);
+            //plane = Instantiate(PlanePrefab, new Vector3((Location.x * 2 + xSize) / 2.0f - 0.5f, Location.y + 1f, Location.z + ySize - 0.5f), Quaternion.Euler(0f, -90f, 90f));
+            //plane.transform.localScale = new Vector3(0.2f, 1f, xSize / 10.0f);
             plane = Instantiate(PlanePrefab, new Vector3((Location.x * 2 + xSize) / 2.0f - 0.5f, Location.y + 1f, Location.z - 0.5f), Quaternion.Euler(0f, 90f, 90f));
-            plane.transform.localScale = new Vector3(0.2f, 1f, xSize / 10.0f);
+            plane.transform.localScale = new Vector3(0.4f, 1f, xSize / 10.0f);
             for (int y = 0; y < 2 * Width - 1; y++)
                 for (int x = 0; x < 2 * Length - 1; x++){
-                    if (!MazeData[x, y])
-                        Instantiate(WallPrefab, new Vector3(x + Location.x, 1 + Location.y, y + Location.z), Quaternion.identity);
+                    if (!MazeData[x, y]){
+                        Quaternion rotation = Random.Range(0, 4) switch
+                        {
+                            0 => Quaternion.Euler(0, 0, 0),
+                            1 => Quaternion.Euler(0, 90, 0),
+                            2 => Quaternion.Euler(0, 180, 0),
+                            3 => Quaternion.Euler(0, 270, 0),
+                            _ => Quaternion.identity
+                        };
+                        Instantiate(WallPrefabs[Random.Range(0, WallPrefabs.Length)], new Vector3(x + Location.x, Location.y, y + Location.z), rotation);
+                    }
                 }
         } else throw new System.Exception("Maze is not generated!");
     }
