@@ -69,16 +69,17 @@ public class Maze : MonoBehaviour{
     public void DisplayMaze(){
         if (IsGenerated){
             int xSize = 2 * Length - 1, ySize = 2 * Width - 1;
-            GameObject plane = Instantiate(PlanePrefab, new Vector3(Location.x + xSize / 2.0f - 0.5f, Location.y, Location.z + ySize / 2.0f - 0.5f), Quaternion.identity);
-            plane.transform.localScale = new Vector3(xSize / 10.0f, 1f, ySize / 10.0f);
-            plane = Instantiate(PlanePrefab, new Vector3(Location.x - 0.5f, Location.y + 1f, (Location.z * 2 + ySize) / 2.0f - 0.5f), Quaternion.Euler(0f, 0f, -90f));
-            plane.transform.localScale = new Vector3(0.2f, 1f, ySize / 10.0f);
+            //GameObject plane = Instantiate(PlanePrefab, new Vector3(Location.x + xSize / 2.0f - 0.5f, Location.y, Location.z + ySize / 2.0f - 0.5f), Quaternion.identity);
+            //plane.transform.localScale = new Vector3(xSize / 10.0f, 1f, ySize / 10.0f);
+            GameObject plane = Instantiate(PlanePrefab, new Vector3(Location.x - 0.5f, Location.y + 1f, (Location.z * 2 + ySize) / 2.0f - 0.5f), Quaternion.Euler(0f, 0f, -90f));
+            plane.transform.localScale = new Vector3(0.4f, 1f, ySize / 10.0f);
             plane = Instantiate(PlanePrefab, new Vector3(Location.x + xSize - 0.5f, Location.y + 1f, (Location.z * 2 + ySize) / 2.0f - 0.5f), Quaternion.Euler(0f, 0f, 90f));
-            plane.transform.localScale = new Vector3(0.2f, 1f, ySize / 10.0f);
-            plane = Instantiate(PlanePrefab, new Vector3((Location.x * 2 + xSize) / 2.0f - 0.5f, Location.y + 1f, Location.z + ySize - 0.5f), Quaternion.Euler(0f, -90f, 90f));
-            plane.transform.localScale = new Vector3(0.2f, 1f, xSize / 10.0f);
+            plane.transform.localScale = new Vector3(0.4f, 1f, ySize / 10.0f);
+            //plane = Instantiate(PlanePrefab, new Vector3((Location.x * 2 + xSize) / 2.0f - 0.5f, Location.y + 1f, Location.z + ySize - 0.5f), Quaternion.Euler(0f, -90f, 90f));
+            //plane.transform.localScale = new Vector3(0.2f, 1f, xSize / 10.0f);
             plane = Instantiate(PlanePrefab, new Vector3((Location.x * 2 + xSize) / 2.0f - 0.5f, Location.y + 1f, Location.z - 0.5f), Quaternion.Euler(0f, 90f, 90f));
-            plane.transform.localScale = new Vector3(0.2f, 1f, xSize / 10.0f);
+            plane.transform.localScale = new Vector3(0.4f, 1f, xSize / 10.0f);
+
             for (int y = 0; y < 2 * Width - 1; y++)
                 for (int x = 0; x < 2 * Length - 1; x++){
                     if (!MazeData[x, y]){
