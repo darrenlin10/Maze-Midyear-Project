@@ -12,7 +12,7 @@ public class MazeExitTrigger : MonoBehaviour
             {
                 gm.OnMazeExitReached();
             }
-            player.position = new Vector3(0, 0, 0);
+            player.position = new Vector3(20, 0, 60);
         }
     }
 }
