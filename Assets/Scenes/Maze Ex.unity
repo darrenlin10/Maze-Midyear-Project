@@ -321,6 +321,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 865acebb96b71ed44a96b9a7d73d4410, type: 3}
+
 --- !u!1 &145931819
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +495,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+
 --- !u!1 &296136269
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +533,7 @@ MonoBehaviour:
   - {fileID: 8876733221904636791, guid: ad46bef910dd8264d8941b6c1d070e7a, type: 3}
   - {fileID: 4173537670667161039, guid: 419cb23175a4f3643a83051ec5214497, type: 3}
   - {fileID: 8657547794041364947, guid: ccf1c9afdb9d90d48b994c02a2eeb752, type: 3}
+
 --- !u!4 &296136271
 Transform:
   m_ObjectHideFlags: 0
@@ -978,6 +981,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 620769571}
+
   - {fileID: 38894521}
   - {fileID: 1863722736}
   m_Father: {fileID: 1427111542}
@@ -1052,6 +1056,7 @@ PrefabInstance:
     - target: {fileID: 2669222955547625173, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
       propertyPath: m_IsActive
       value: 1
+
       objectReference: {fileID: 0}
     - target: {fileID: 2669222955547625173, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
       propertyPath: m_TagString
@@ -1076,6 +1081,7 @@ PrefabInstance:
     - target: {fileID: 3569648989802008193, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
+
       objectReference: {fileID: 0}
     - target: {fileID: 3569648989802008193, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1125,6 +1131,7 @@ PrefabInstance:
       propertyPath: mazeGrid
       value: 
       objectReference: {fileID: 1942040610}
+
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1161,6 +1168,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1011973073}
+
   - {fileID: 666439295}
   - {fileID: 1626879673}
   m_Father: {fileID: 1427111542}
@@ -1239,6 +1247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mazeScript: {fileID: 296136270}
   mazeGrid: {fileID: 1942040610}
+
   player: {fileID: 1773015895}
   cellSize: 2
 --- !u!4 &608982407
@@ -1394,6 +1403,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620769570}
   m_CullTransparentMesh: 1
+
 --- !u!1 &666439294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,6 +1975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazeGrid: {fileID: 1942040610}
+
 --- !u!4 &998731824
 Transform:
   m_ObjectHideFlags: 0
@@ -1981,6 +1992,7 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011973072
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1991,6 +2003,7 @@ GameObject:
   - component: {fileID: 1011973073}
   - component: {fileID: 1011973075}
   - component: {fileID: 1011973074}
+
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1999,12 +2012,14 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &1011973073
+
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011973072}
+
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -2018,12 +2033,14 @@ RectTransform:
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1011973074
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011973072}
+
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -2038,6 +2055,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "You Lost... Womp Womp\n\t    Skill Issue"
+
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2048,6 +2066,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4281022137
   m_fontColor: {r: 0.7264151, g: 0.20984794, b: 0.16789784, a: 1}
+
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2066,6 +2085,7 @@ MonoBehaviour:
     rgba: 4294967295
   m_fontSize: 36
   m_fontSizeBase: 36
+
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2073,6 +2093,7 @@ MonoBehaviour:
   m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
+
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2109,6 +2130,7 @@ MonoBehaviour:
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1011973075
+
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2117,6 +2139,7 @@ CanvasRenderer:
   m_GameObject: {fileID: 1011973072}
   m_CullTransparentMesh: 1
 --- !u!1001 &1039762542
+
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2372,6 +2395,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0b530793202934a9386c9462c303d0c2, type: 3}
       propertyPath: m_Name
       value: qiqi(dhruv_edit) (1)
+
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2422,6 +2446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazeGrid: {fileID: 1942040610}
+
 --- !u!1 &1311521453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,6 +2702,7 @@ MonoBehaviour:
   mazeGrid: {fileID: 1942040610}
   cellSize: 2
   enemyPrefab: {fileID: 2031471101}
+
   numberOfEnemies: 4
   playerAttack: {fileID: 1773015902}
   player: {fileID: 1773015895}
@@ -2726,6 +2752,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.4, z: 1}
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2997,6 +3024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a555e4c9d7744707beeda3242a734bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
 --- !u!1 &1863722735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3146,6 +3174,7 @@ GameObject:
   m_Layer: 0
   m_Name: Plane
   m_TagString: Ground
+
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3267,6 +3296,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1675104867242560354}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
+
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0a2d0ca77bd14e9095e44e7faaa815a, type: 3}
@@ -3277,6 +3307,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2669222955547625173, guid: 77061c7d454cd489c9d62096ecff213e, type: 3}
   m_PrefabInstance: {fileID: 571942392}
   m_PrefabAsset: {fileID: 0}
+
 --- !u!1 &2081807819
 GameObject:
   m_ObjectHideFlags: 0
@@ -3435,6 +3466,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25, y: 5, z: 65}
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3568,6 +3600,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8337a9894c9054fa982d9f0d4f8916fc, type: 3}
+
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3577,6 +3610,7 @@ SceneRoots:
   - {fileID: 1675104867242560354}
   - {fileID: 998731824}
   - {fileID: 8603082876052535653}
+
   - {fileID: 571942392}
   - {fileID: 2081807825}
   - {fileID: 1389911670}
@@ -3589,3 +3623,4 @@ SceneRoots:
   - {fileID: 1187641688}
   - {fileID: 109413083}
   - {fileID: 1039762542}
+

@@ -19,6 +19,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0b530793202934a9386c9462c303d0c2, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2
+
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b530793202934a9386c9462c303d0c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazeGrid: {fileID: 6023506571008513776, guid: de2159985bb4d49b3876cf711ef9bc50, type: 3}
+
 --- !u!114 &1765860525659355762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4569381018251982090, guid: 8337a9894c9054fa982d9f0d4f8916fc, type: 3}
+
   moveSpeed: 3
   updatePathInterval: 4
   nextNodeDistance: 2

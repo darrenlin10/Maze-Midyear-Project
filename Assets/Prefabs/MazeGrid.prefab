@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5857954166534712663}
   - component: {fileID: 6023506571008513776}
+
   m_Layer: 0
   m_Name: MazeGrid
   m_TagString: Untagged

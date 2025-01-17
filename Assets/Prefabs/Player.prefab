@@ -117,6 +117,7 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!81 &2616212984973352076
+
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,6 +240,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124302175840144091}
+
   m_Material: {fileID: 13400000, guid: 1d3b56496774d714498066c0e7109840, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -256,12 +258,14 @@ CapsuleCollider:
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1283804101811308740
+
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124302175840144091}
+
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -283,12 +287,14 @@ Rigidbody:
   m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &1842459617167490622
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124302175840144091}
+
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 621760bf96abc4680818db309cd63746, type: 3}
@@ -297,12 +303,14 @@ MonoBehaviour:
   moveSpeed: 1.5
   jumpForce: 5
 --- !u!114 &318578773541456085
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124302175840144091}
+
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a047dbbe8724f421f931d5abe2e60915, type: 3}
@@ -310,12 +318,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 100
 --- !u!114 &8193442458235539527
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124302175840144091}
+
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a555e4c9d7744707beeda3242a734bd, type: 3}
